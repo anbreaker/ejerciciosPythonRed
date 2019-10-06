@@ -5,6 +5,8 @@ lista = [1, 2, 3, 'hola', 2, 1, 3, 1, 2, 'hola', 3]
 
 conjunto = set(lista)
 
+print('Ver si un valor esta contenido en el conjunto--> ', 1 in conjunto)
+
 # agregando valores
 conjunto.add('a')
 conjunto.add(5)
@@ -17,3 +19,9 @@ print(f'Lista sin elementos repetidos --> {lista}')
 
 # Todo en una linea:
 lista = print('Ejecicio en un alinea--> ', list(set(lista)))
+
+mensaje = 'Lorem Lorem Ipsum is simply dummy text of simply the printing and typesetting industry.'
+listaMensaje = mensaje.split(' ')
+print(listaMensaje)
+conjuntoMensaje = list(set(listaMensaje))
+print(conjuntoMensaje)

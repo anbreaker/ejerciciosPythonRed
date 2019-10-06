@@ -18,3 +18,9 @@ for i in range(5):
 conjunto.add('hola')
 
 print(1 not in conjunto)
+
+mensaje = 'Lorem Lorem Ipsum is simply dummy text of simply the printing and typesetting industry.'
+listaMensaje = mensaje.split(' ')
+print(listaMensaje)
+conjuntoMensaje = list(set(listaMensaje))
+print(conjuntoMensaje)
