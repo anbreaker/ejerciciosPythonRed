@@ -1,4 +1,5 @@
-# Ejercicio 2 Conjutos
+# Conjutos:
+# Ejercicio 2
 # Escribe un programa que tenga dos listas y que, a continuacion, cree
 # las siguientes listas (en las que no debe haber repeticiones):
 #   Lista de palabras que aparecen en las dos listas
@@ -6,21 +7,21 @@
 #   Lista de palabras que aparecen en la segunda lista, pero no en la primera.
 #   Lista de palabras que aparecen en ambas.
 
+mensaje1 = 'Hola mundo Elvas Badajoz 1 2 3 4 Lorem the printing and typesetting industry.'
+mensaje2 = 'Lorem Lorem Ipsum is simply dummy text of simply the printing and typesetting industry.'
 
-lista1 = ['hola', 'mundo', 'Elvas', 'Badajoz', 1, 2, 3]
-lista2 = []
 
-conjunto = set()
-conjuto = {}
-for i in range(5):
-    conjunto.add(i)
+lista1 = mensaje1.split(' ')
+lista2 = mensaje2.split(' ')
+# print(lista1)
+# print(lista2)
 
-conjunto.add('hola')
-
-print(1 not in conjunto)
-
-mensaje = 'Lorem Lorem Ipsum is simply dummy text of simply the printing and typesetting industry.'
-listaMensaje = mensaje.split(' ')
-print(listaMensaje)
-conjuntoMensaje = list(set(listaMensaje))
-print(conjuntoMensaje)
+conjunto1 = set(lista1)
+conjunto2 = set(lista2)
+listaConjunta = conjunto1 | conjunto2
+print('')
+print(conjunto1)
+print(conjunto2)
+print('')
+print(listaConjunta)
+print('')
