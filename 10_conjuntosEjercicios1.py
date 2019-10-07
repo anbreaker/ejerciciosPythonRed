@@ -7,21 +7,19 @@
 #   Lista de palabras que aparecen en la segunda lista, pero no en la primera.
 #   Lista de palabras que aparecen en ambas.
 
-mensaje1 = 'Hola mundo Elvas Badajoz 1 2 3 4 Lorem the printing and typesetting industry.'
-mensaje2 = 'Lorem Lorem Ipsum is simply dummy text of simply the printing and typesetting industry.'
+lista1 = [1,2,3,4,5,4,3,2,2,1,5]
+lista2 = [4,5,6,7,8,4,5,6,7,7,8]
 
+# Elimino los elementos repetidos de ambas listas
+a = set(lista1)
+b = set(lista2)
 
-lista1 = mensaje1.split(' ')
-lista2 = mensaje2.split(' ')
-# print(lista1)
-# print(lista2)
+listaUnion = list(a | b)
+listaSolaA = list(a -b)
+listaSoloB = list(b -a)
+interseccion = list(a & b)
 
-conjunto1 = set(lista1)
-conjunto2 = set(lista2)
-listaConjunta = conjunto1 | conjunto2
-print('')
-print(conjunto1)
-print(conjunto2)
-print('')
-print(listaConjunta)
-print('')
+print(f'Lista de palabras que aparecen en las dos listas {listaUnion}')
+print(f'Lista de palabras que aparecen en la primeram pero no en la segunda. {listaSolaA}')
+print(f'Lista de palabras que aparecen en la segunda lista, pero no en la primera. {listaSoloB}')
+print(f'Lista de palabras que aparecen en ambas. {interseccion}')
