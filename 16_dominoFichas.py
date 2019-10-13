@@ -29,9 +29,9 @@ while opcion == 0:
             list(fichasDomino.values()).index(valor)]
         print(buscando)
         opcion = 1
-
-
-# claves = list(fichasDomino.keys())
-# valores = list(fichasDomino.values())
-# print(f'\nClaves --> {claves} \n')
-# print(f'Valores -> {valores}')
+    if elegirOpcion == 3:
+        claves = list(fichasDomino.keys())
+        valores = list(fichasDomino.values())
+        print(f'\nClaves --> {claves} \n')
+        print(f'Valores -> {valores}')
+        opcion = 1
