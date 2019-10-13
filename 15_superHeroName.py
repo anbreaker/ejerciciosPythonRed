@@ -1,3 +1,5 @@
+import datetime
+
 # Haz un programa que te pida nombre completo y fecha de nacimiento.
 # Y según ello te de tu nombre de superhéroe, tus poderes, tu color de traje y tu arma.
 # Deberas valorar que la fecha es correcta formalmente y también que el usuario ha nacido antes de hoy.
@@ -37,7 +39,16 @@ superPoderes = {'1': 'Convertir todo en Algodón', '2': 'Velocidad de la luz', '
 flag = 0
 nombre = str(input('Introduce tu nombre: '))
 apellido = str(input('Introduce tu apellido: '))
-birthYear = str(input('Año de nacimiento: '))
+# birthYear = str(input('Año de nacimiento: '))
+
+
+fechaNacimiento = str(input('Introduce Fecha Nacimiento (dd-mm-aaaa) '))
+formatoFecha = '%d-%m-%Y'
+datetimeObject = datetime.datetime.strptime(fechaNacimiento, formatoFecha)
+# dia = datetimeObject.strftime('%d')
+mes = datetimeObject.strftime('%m')
+year = datetimeObject.strftime('%Y')
+
 
 while flag == 0:
     if nombre.isalpha() and apellido.isalpha():
@@ -52,13 +63,15 @@ while flag == 0:
 
 
 # Seguir por el año
+        # Mes Nacimiento
+        mes = mes[-1]
         # Año Nacimiento
-        birthYear = birthYear[-1]
-        print(birthYear)
+        year = year[-1]
+        print(year)
 
         # Mensaje de salida
         print(
-            f'Tu Nombre de superheroes es:\n\t{nombreSuperHeroes[primeraLetraNombre]} {apellidoSuperHeroe[primeraLetraApellido]}')
+            f'Tu Nombre de superheroes es:\n\t{nombreSuperHeroes[primeraLetraNombre]} {apellidoSuperHeroe[primeraLetraApellido]} llevas un traje de color {colorTraje[year]}y tu superPoder es: {superPoderes[mes]}')
 
     else:
         if nombre.isalpha():
