@@ -1,5 +1,3 @@
-import datetime
-
 # Haz un programa que te pida nombre completo y fecha de nacimiento.
 # Y según ello te de tu nombre de superhéroe, tus poderes, tu color de traje y tu arma.
 # Deberas valorar que la fecha es correcta formalmente y también que el usuario ha nacido antes de hoy.
@@ -36,54 +34,25 @@ superPoderes = {'1': 'Convertir todo en Algodón', '2': 'Velocidad de la luz', '
                 '11': 'Saltar 20 Metros', '12': 'Volar'}
 
 
-flag = 0
-# nombre = str(input('Introduce tu nombre: '))
-nombre = 'fj'
-# apellido = str(input('Introduce tu apellido: '))
-apellido = 'an'
-# birthYear = str(input('Año de nacimiento: '))
+def validarEntradaAlpha(opcion):
+    flag = 0
+    while flag == 0:
+        try:
+            entrada = str(input(f'Introduce tu {opcion}: '))
+            entrada = entrada.upper()
+            entrada = entrada.split()
+            primeraParteDeLaEntrada = str(entrada[0])
+            primeraLetraDeLaEntrada = str(primeraParteDeLaEntrada[0])
+            if not primeraLetraDeLaEntrada.isalpha() or primeraLetraDeLaEntrada == 'ª' or primeraLetraDeLaEntrada == 'º':
+                print('\n¡Warning, ¡Warning!\n')
+            else:
+                flag = 1
+            # Prueba
+            print(f'{nombreSuperHeroes[primeraLetraDeLaEntrada]}')
+        except IndexError:
+            print(f'\nDebes escribir un {opcion}: ')
+        except KeyError:
+            print(f'Tu {opcion} debe comenzar por letras del alfabeto')
 
-# fechaNacimiento = str(input('Introduce Fecha Nacimiento (dd-mm-aaaa) '))
 
-fechaNacimiento = '12-03-1993'
-formatoFecha = '%d-%m-%Y'
-
-datetimeObject = datetime.datetime.strptime(fechaNacimiento, formatoFecha)
-dia = str(datetimeObject.strftime('%d'))
-mes = str(datetimeObject.strftime('%m'))
-year = str(datetimeObject.strftime('%Y'))
-
-
-while flag == 0:
-
-    if nombre.isalpha() and apellido.isalpha() and dia.isalnum() and mes.isalnum() and year.isalnum():
-        flag = 1
-        # nombre:
-        nombre = nombre.upper()
-        primeraLetraNombre = nombre[0]
-
-        # apellido
-        apellido = apellido.upper()
-        primeraLetraApellido = apellido[0]
-
-        # Mes Nacimiento
-        mes = mes[-1]
-        # Año Nacimiento
-        year = year[-1]
-
-        # Mensaje de salida
-        print(
-            f'Tu Nombre de superheroes es:\n\t{nombreSuperHeroes[primeraLetraNombre]} {apellidoSuperHeroe[primeraLetraApellido]} llevas un traje de color {colorTraje[year]} y tu superPoder es: {superPoderes[mes]}')
-
-    else:
-        if nombre.isalpha():
-            apellido = str(
-                input('Introduce tu apellido: (Caracteres Alfabeticos)'))
-        elif apellido.isalpha():
-            nombre = str(
-                input('Introduce tu nombre: (Caracteres Alfabeticos)'))
-        else:
-            nombre = str(
-                input('Introduce tu nombre: (Caracteres Alfabeticos)'))
-            apellido = str(
-                input('Introduce tu apellido: (Caracteres Alfabeticos)'))
+validarEntradaAlpha('Apellido')
