@@ -1,3 +1,5 @@
+import datetime
+
 # Haz un programa que te pida nombre completo y fecha de nacimiento.
 # Y según ello te de tu nombre de superhéroe, tus poderes, tu color de traje y tu arma.
 # Deberas valorar que la fecha es correcta formalmente y también que el usuario ha nacido antes de hoy.
@@ -56,3 +58,27 @@ def validarEntradaAlpha(opcion):
 
 
 validarEntradaAlpha('Apellido')
+
+fecha = '19-1s-1985'
+ver = ''
+
+
+def comprobarFormatoFecha(fecha):
+    # if fecha
+    flag = 0
+    while flag == 0:
+        try:
+            fecha = input('Introduce una fecha ')
+            formato = "%d-%m-%Y"
+            datetimeObject = datetime.datetime.strptime(fecha, formato)
+            dia = datetimeObject.strftime('%d')
+            mes = datetimeObject.strftime('%m')
+            year = datetimeObject.strftime('%Y')
+            ver = f'Dia: {dia} mes {mes} año {year}'
+            print(ver)
+            flag = 1
+        except ValueError:
+            print('Escribe bien la fecha ')
+
+
+comprobarFormatoFecha(fecha)
