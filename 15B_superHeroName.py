@@ -68,7 +68,7 @@ def comprobarFormatoFecha(fecha):
     flag = 0
     while flag == 0:
         try:
-            fecha = input('Introduce una fecha ')
+            fecha = input('Introduce una fecha (dd-mm-yyyy)')
             formato = "%d-%m-%Y"
             datetimeObject = datetime.datetime.strptime(fecha, formato)
             dia = datetimeObject.strftime('%d')
@@ -78,7 +78,7 @@ def comprobarFormatoFecha(fecha):
             print(ver)
             flag = 1
         except ValueError:
-            print('Escribe bien la fecha ')
+            print('Escribe bien el formato de fecha (dd-mm-yyyy)')
 
 
 comprobarFormatoFecha(fecha)
