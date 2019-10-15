@@ -64,7 +64,6 @@ ver = ''
 
 
 def comprobarFormatoFecha(fecha):
-    # if fecha
     flag = 0
     while flag == 0:
         try:

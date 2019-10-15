@@ -1,7 +1,7 @@
 import datetime
 
 today = datetime.date.today()
-print(today)
+print('Imprimer today -> ', today)
 
 birthday = datetime.date(1985, 12, 19)
 print(birthday)
