@@ -28,8 +28,11 @@ superPoderes = ['Convertir todo en Algodon', 'Velocidad de la luz', 'Hablar con 
 def validarFecha(cadena):
     try:
         datetimeObject = datetime.strptime(cadena, _FORMATO_FECHA)
-        if datetimeObject.year < 1920 or str(datetimeObject) > str(_CURRENT_DATA):
+        if str(datetimeObject) > str(_CURRENT_DATA):
             print('\n\tDebes al menos haber nacido ;)\n')
+            return False
+        elif datetimeObject.year < 1920:
+            print('¿Seguro que sigues vivo? ;)')
             return False
         return True
     except ValueError:
@@ -86,8 +89,6 @@ while not validarFecha(fecha):
 
 # Asignaciones
 fecha = datetime.strptime(fecha, _FORMATO_FECHA)
-
-
 nombreSuperH = asignaNombreHeroe(nombre, apellidos)
 colorSuperH, superPoder = asignarDisfraz(fecha)
 
