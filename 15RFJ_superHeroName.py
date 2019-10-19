@@ -2,6 +2,8 @@ from datetime import datetime
 
 _FORMATO_FECHA = "%d-%m-%Y"
 _CURRENT_DATA = datetime.now().date()
+_POSIBLE_VALOR_ENTRADA = 'áéíóúüçÇÁÉÍÓÚ'
+_SALIDA = 'aeiouuzZAEIOU'
 
 
 nombreSuperHeroes = {'A': 'Sobaco', 'B': 'Asesino', 'C': 'Capitan', 'D': 'Pezon', 'E': 'Trueno', 'F': 'Lobo', 'G': 'Conejo', 'H': 'Halcon',
@@ -34,18 +36,26 @@ def validarFecha(cadena):
         return False
 
 
-def isValid(cadena):
+def convertirAcentos(cadena):
+    cambiarAcentos = str.maketrans(_POSIBLE_VALOR_ENTRADA, _SALIDA)
+    cadena = nombre.translate(cambiarAcentos)
+    return cadena
+
+
+def esValida(cadena):
     if not cadena[0].isalpha() or cadena[0] == 'ª' or cadena[0] == 'º':
         return False
     else:
         return True
 
 
-def asignaNombreHeroe(nombre, apellidos):
-    nombreSH = nombreSuperHeroes[nombre[0].upper()]
-    apellidosSH = apellidoSuperHeroe[apellidos[0].upper()]
+def asignaNombreHeroe(nombre, apellido):
+    nombreSinAcentos = convertirAcentos(nombre)
+    nombreSH = nombreSuperHeroes[nombreSinAcentos[0].upper()]
+    apellidoSinAcento = convertirAcentos(apellido)
+    apellidosSH = apellidoSuperHeroe[apellidoSinAcento[0].upper()]
     # return nombreSH + " " + apellidosSH
-    return nombreSH + " " + apellidosSH
+    return (f'{nombreSH} {apellidosSH}')
 
 
 def asignarDisfraz(fecha):
@@ -58,13 +68,13 @@ def asignarDisfraz(fecha):
 
 # Pedir nombre
 nombre = input('Dime tu nombre, por favor: ')
-while not isValid(nombre):
+while not esValida(nombre):
     print('Nombre incorrecto debe comenzar por una de las letras del abecedario')
     nombre = input('Dime tu nombre, por favor: ')
 
 # Pedir apellidos
 apellidos = input('Dime tu primer apellido, por favor: ')
-while not isValid(apellidos):
+while not esValida(apellidos):
     print('Apellido incorrecto debe comenzar por una de las letras del abecedario')
     apellidos = input('Dime tu primer apellido, por favor: ')
 
@@ -77,8 +87,9 @@ while not validarFecha(fecha):
 # Asignaciones
 fecha = datetime.strptime(fecha, _FORMATO_FECHA)
 
+
 nombreSuperH = asignaNombreHeroe(nombre, apellidos)
 colorSuperH, superPoder = asignarDisfraz(fecha)
 
-print("Te llamas {}, llevas un traje {} y tu superpoder es {}".format(
-    nombreSuperH, colorSuperH, superPoder))
+print(
+    f'Te llamas {nombreSuperH}, llevas un traje {colorSuperH} y tu superpoder es {superPoder}')
