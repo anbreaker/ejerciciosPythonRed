@@ -12,11 +12,11 @@ _SALIDA = 'aeiouuzZAEIOU'
 
 ivaPaises = {
     'Hungria': 27, 'Croacia': 25, 'Dinamarca': 25, 'Suecia': 25, 'Finlandia': 24,
+    'Bulgaria': 20, 'Eslovaquia': 20, 'Estonia': 20, 'Francia': 20, 'Malta': 18,
     'Rumania': 24, 'Grecia': 23, 'Irlanda': 23, 'Polonia': 23, 'Portugal': 23,
     'Eslovenia': 22, 'Italia': 22, 'España': 21, 'Belgica': 21, 'Letonia': 21,
     'Lituania': 21, 'Paises Bajos': 21, 'Republica Checa': 21, 'Austria': 20,
-    'Bulgaria': 20, 'Eslovaquia': 20, 'Estonia': 20, 'Francia': 20,
-    'Reino Unido': 20, 'Alemania': 19, 'Chipre': 19, 'Malta': 18, 'Luxemburgo': 15
+    'Reino Unido': 20, 'Alemania': 19, 'Chipre': 19, 'Luxemburgo': 15
 }
 
 
@@ -38,14 +38,17 @@ def existePais(pais):
 
 def validarCantidad(cantidad):
     try:
-        if cantidad.isdigit() and float(cantidad) > 0:
+        if cantidad > 0:
             return True
     except ValueError:
         return False
 
 
-def calcularIVA(pais):
-    pass
+def calcularIVA(cantidad):
+    print(cantidad)
+    cantidadConIva = float(21 * cantidad)
+    print(f'Importe a pagar: {cantidadConIva}')
+    # return cantidadConIva
 
 
 # Pedir País
@@ -57,12 +60,17 @@ while not existePais(pais):
     existePais(pais)
 
 # Introducir cantidad para pasar IVA
-cantidad = input('Introduce cantidad a aplicar IVA: ')
-while not validarCantidad(cantidad):
-    print('Debes introducir una cantidad numérica y positiva. ')
-    cantidad = input('Introduce cantidad a aplicar IVA: ')
+while True:
+    try:
+        cantidad = float(input('Introduce cantidad a aplicar IVA: '))
+    except ValueError:
+        print('Debes introducir una cantidad numérica y positiva. ')
+    else:
+        validarCantidad(cantidad)
+        break
 
 
 ver = convertirAcentosTitle(pais)
+cantidadIvaTotal = calcularIVA(cantidad)
 
 print(f'Nombre del pais --> {ver}')
