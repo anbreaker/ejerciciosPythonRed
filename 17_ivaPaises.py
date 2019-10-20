@@ -39,7 +39,11 @@ def existePais(pais):
 def validarCantidad(cantidad):
     try:
         if cantidad > 0:
+            cantidadIvaTotal = calcularIVA(cantidad)
             return True
+        else:
+            print('No es positivo el numero')
+            return False
     except ValueError:
         return False
 
@@ -57,7 +61,7 @@ while not existePais(pais):
     print('Debes introducir un pais de la Comunidad Economica Europea: ')
     # print(f'{ivaPaises.keys()}')
     pais = input('Escribe el pais para el que deseas saber el IVA: ')
-    
+
 
 # Introducir cantidad para pasar IVA
 while True:
@@ -66,11 +70,13 @@ while True:
     except ValueError:
         print('Debes introducir una cantidad numérica y positiva. ')
     else:
-        validarCantidad(cantidad)
-        break
+        if not validarCantidad(cantidad):
+            print('Debes introducir una cantidad numérica y positiva. ')
+        else:
+            break
 
 
 ver = convertirAcentosTitle(pais)
-cantidadIvaTotal = calcularIVA(cantidad)
+# cantidadIvaTotal = calcularIVA(cantidad)
 
 print(f'Nombre del pais --> {ver}')
