@@ -57,7 +57,7 @@ while not existePais(pais):
     print('Debes introducir un pais de la Comunidad Economica Europea: ')
     # print(f'{ivaPaises.keys()}')
     pais = input('Escribe el pais para el que deseas saber el IVA: ')
-    existePais(pais)
+    
 
 # Introducir cantidad para pasar IVA
 while True:
