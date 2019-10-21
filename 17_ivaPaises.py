@@ -36,23 +36,24 @@ def existePais(pais):
         return False
 
 
+def calcularIVA(cantidad):
+    print(cantidad)
+    # probando con un IVA fijo...
+    cantidadConIva = float(21 * cantidad)
+    print(f'Importe a pagar: {cantidadConIva}')
+    # return cantidadConIva
+
+
 def validarCantidad(cantidad):
     try:
         if cantidad > 0:
             cantidadIvaTotal = calcularIVA(cantidad)
             return True
         else:
-            print('No es positivo el numero')
+            # print('No es positivo el numero')
             return False
     except ValueError:
         return False
-
-
-def calcularIVA(cantidad):
-    print(cantidad)
-    cantidadConIva = float(21 * cantidad)
-    print(f'Importe a pagar: {cantidadConIva}')
-    # return cantidadConIva
 
 
 # Pedir País
