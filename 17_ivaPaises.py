@@ -37,9 +37,8 @@ def existePais(pais):
 
 
 def calcularIVA(cantidad):
-    print(cantidad)
-    # probando con un IVA fijo...
-    cantidadConIva = float(21 * cantidad)
+    print(f'Dentro de calcularIVA nombrePais--> {ivaPaises[pais]}')
+    cantidadConIva = float(ivaPaises[pais] * cantidad)
     print(f'Importe a pagar: {cantidadConIva}')
     # return cantidadConIva
 
