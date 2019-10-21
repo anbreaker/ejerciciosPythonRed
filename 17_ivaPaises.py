@@ -45,15 +45,17 @@ def calcularIVA(cantidad):
 
 
 def validarCantidad(cantidad):
-    try:
-        if cantidad > 0:
-            cantidadIvaTotal = calcularIVA(cantidad)
-            return True
-        else:
-            # print('No es positivo el numero')
+    while True:
+        try:
+            if cantidad > 0:
+                cantidadIvaTotal = calcularIVA(cantidad)
+                return True
+                break
+            else:
+                # print('No es positivo el numero')
+                return False
+        except ValueError:
             return False
-    except ValueError:
-        return False
 
 
 # Pedir País
