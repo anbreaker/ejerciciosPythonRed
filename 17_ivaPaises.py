@@ -28,19 +28,18 @@ def convertirAcentosTitle(nombre):
 
 
 def existePais(pais):
-    pais = convertirAcentosTitle(pais)
     if pais in ivaPaises:
-        print(f'Valor del iva en {pais}--> {ivaPaises[pais]}')
         return True
     else:
         return False
 
 
 def calcularIVA(cantidad):
-    print(f'Dentro de calcularIVA nombrePais--> {ivaPaises[pais]}')
     cantidadConIva = float(ivaPaises[pais] * cantidad)
-    print(f'Importe a pagar: {cantidadConIva}')
-    # return cantidadConIva
+    difIva = cantidadConIva - cantidad
+    print(f'La cantida a aplicar el iva es: {cantidad}')
+    print(f'La cantida a pagar de iva es: {difIva}')
+    print(f'La cantida Total a pagar es: {cantidadConIva}')
 
 
 def validarCantidad(cantidad):
@@ -59,10 +58,12 @@ def validarCantidad(cantidad):
 
 # Pedir País
 pais = input('Escribe el pais para el que deseas saber el IVA: ')
+pais = convertirAcentosTitle(pais)
 while not existePais(pais):
     print('Debes introducir un pais de la Comunidad Economica Europea: ')
     # print(f'{ivaPaises.keys()}')
     pais = input('Escribe el pais para el que deseas saber el IVA: ')
+    pais = convertirAcentosTitle(pais)
 
 
 # Introducir cantidad para pasar IVA
@@ -79,6 +80,3 @@ while True:
 
 
 ver = convertirAcentosTitle(pais)
-# cantidadIvaTotal = calcularIVA(cantidad)
-
-print(f'Nombre del pais --> {ver}')
