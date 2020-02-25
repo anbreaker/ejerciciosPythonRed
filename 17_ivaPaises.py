@@ -36,19 +36,24 @@ def existePais(pais):
         return False
 
 
+def calcularIVA(cantidad, pais):
+    print(
+        f'\nLa cantidad es --> {cantidad} \nEl iva que corresponde con {pais} es --> {ivaPaises[pais]}\n')
+    # probando con un IVA fijo...
+    cantidadConIva = float(ivaPaises[pais] * cantidad)
+    print(f'Importe a pagar: {cantidadConIva}')
+    # return cantidadConIva
+
+
 def validarCantidad(cantidad):
     try:
         if cantidad > 0:
             return True
+        else:
+            # print('No es positivo el numero')
+            return False
     except ValueError:
         return False
-
-
-def calcularIVA(cantidad):
-    print(cantidad)
-    cantidadConIva = float(21 * cantidad)
-    print(f'Importe a pagar: {cantidadConIva}')
-    # return cantidadConIva
 
 
 # Pedir País
@@ -57,7 +62,7 @@ while not existePais(pais):
     print('Debes introducir un pais de la Comunidad Economica Europea: ')
     # print(f'{ivaPaises.keys()}')
     pais = input('Escribe el pais para el que deseas saber el IVA: ')
-    existePais(pais)
+
 
 # Introducir cantidad para pasar IVA
 while True:
@@ -66,11 +71,13 @@ while True:
     except ValueError:
         print('Debes introducir una cantidad numérica y positiva. ')
     else:
-        validarCantidad(cantidad)
-        break
+        if not validarCantidad(cantidad):
+            print('Debes introducir una cantidad numérica y positiva. ')
+        else:
+            break
 
 
 ver = convertirAcentosTitle(pais)
-cantidadIvaTotal = calcularIVA(cantidad)
+cantidadIvaTotal = calcularIVA(cantidad, pais)
 
 print(f'Nombre del pais --> {ver}')
