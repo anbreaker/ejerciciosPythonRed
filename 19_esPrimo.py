@@ -1,23 +1,23 @@
-def esPrimo(number):
-    if number < 2:
+def esPrimo(numero):
+    if numero < 2:
         return False
-    elif number == 2:
+    elif numero == 2:
         return True
-    elif number > 2 and number % 2 == 0:
+    elif numero > 2 and numero % 2 == 0:
         return False
     else:
-        for i in range(3, number):
-            if number % i == 0:
+        for i in range(3, numero):
+            if numero % i == 0:
                 return False
 
     return True
 
 
 def run():
-    number = int(input('Escribe un número: '))
-    result = esPrimo(number)
+    numero = int(input('Escribe un número: '))
+    resultado = esPrimo(numero)
 
-    if result is True:
+    if resultado is True:
         print('Tu número es primo')
     else:
         print('Tu número NO es primo')
