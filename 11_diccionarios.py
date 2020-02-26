@@ -28,3 +28,16 @@ print(f'Valores del diccionario "equipo"--> {equipo.values()}')
 print(equipo.items())
 # Vaciar un diccionario .clear()
 print(equipo.clear())
+
+calificaciones = dict()
+
+calificaciones['Algoritmos'] = 7
+calificaciones['Matematicas'] = 8
+calificaciones['Desarrolo web'] = 9
+calificaciones['Bases de datos'] = 5
+
+for key in calificaciones:
+    print(f'Las claves del diccionarios son: {key}')
+
+for key, value in calificaciones.items():
+    print(f'Clave-> {key}     Valor-> {value}')
