@@ -117,10 +117,11 @@ def run():
                 palabra_escondida[i] = entra_letra
             letra_index = []
             
-        try:
-            palabra_escondida.index('_')
-        except ValueError:
-            print('Ganaste')
+            try:
+                palabra_escondida.index('_')                
+            except ValueError:
+                print('Ganaste')
+                break
 
 
 if __name__ == '__main__':
