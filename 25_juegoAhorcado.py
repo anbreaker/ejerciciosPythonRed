@@ -73,7 +73,7 @@ LIST_PALABRAS = [
     'secadora',
     'sofa',
     'españa',
-    'portugal'
+    'portugal',
     'motos',
     'teclado'
 ]
