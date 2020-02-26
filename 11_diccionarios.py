@@ -41,3 +41,9 @@ for key in calificaciones:
 
 for key, value in calificaciones.items():
     print(f'Clave-> {key}     Valor-> {value}')
+
+media = 0
+for valor in calificaciones.values():
+    media += valor / len(calificaciones.values())
+
+print(media)
