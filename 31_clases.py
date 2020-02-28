@@ -22,13 +22,13 @@ class Bombilla:
 
     def encender(self):
         self.__encendida = True
-        self.__interruptor()
+        self.__mostar_estado_bombilla()
 
     def apagar(self):
         self.__encendida = False
-        self.__interruptor()
+        self.__mostar_estado_bombilla()
 
-    def __interruptor(self):
+    def __mostar_estado_bombilla(self):
         if self.__encendida:
             print(self.__BOMBILLA[0])
         else:
