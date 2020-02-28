@@ -17,26 +17,26 @@ class Bombilla:
        |_____|
     ''']
 
-    def __init__(self, _encendida):
-        self._encendida = True
+    def __init__(self, encendida):
+        self.__encendida = True
 
     def encender(self):
-        self._encendida = True
-        self._interruptor()
+        self.__encendida = True
+        self.__interruptor()
 
     def apagar(self):
-        self._encendida = False
-        self._interruptor()
+        self.__encendida = False
+        self.__interruptor()
 
-    def _interruptor(self):
-        if self._encendida:
+    def __interruptor(self):
+        if self.__encendida:
             print(self.__BOMBILLA[0])
         else:
             print(self.__BOMBILLA[1])
 
 
 def run():
-    bombilla = Bombilla(_encendida=False)
+    bombilla = Bombilla(encendida=False)
 
     while True:
         elegir = str(input('''
